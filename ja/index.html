@@ -1,0 +1,69 @@
+<!doctype html><html lang="ja"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>タイ女性芸能人 好き顔9選メーカー</title>
+<link rel="stylesheet" href="style.css"></head><body><div class="app">
+
+<section id="home" class="screen">
+<div class="brand">SUKIGAO 9</div><div class="flag">🇹🇭 ♡ 👑</div>
+<p class="eyebrow">THAI GIRLS · FACE ONLY</p>
+<h1>タイ女性芸能人<br><strong>好き顔9選メーカー</strong></h1>
+<p class="lead">89人の候補から直感で選んで、<br>あなたの「顔が好き」TOP9を決めよう。</p>
+<div class="steps"><span>🌱 予選</span><span>🔥 本選</span><span>⚔️ 最終戦</span><span>👑 決勝</span></div>
+<button class="primary" onclick="show('preIntro')">予選をはじめる</button>
+<p class="note">ログイン不要。途中経過はこの端末のブラウザに保存されます。</p>
+</section>
+
+<section id="preIntro" class="screen hidden">
+<p class="eyebrow">🌱 PRELIMINARY</p><h2>予選</h2>
+<p>表示されたメンバーの中から、<br>「顔が好き」と思う人を選んでね。</p>
+<div class="rules">複数選択OK！<br><b>4人画面・3人画面ともに 0〜3人</b>まで。</div>
+<button class="primary" onclick="startPre()">予選スタート →</button>
+</section>
+
+<section id="pre" class="screen hidden">
+<div class="head"><div><p class="eyebrow">🌱 予選</p><h2 id="preTitle"></h2></div><button class="link" onclick="show('home')">トップへ</button></div>
+<h3>この中で好きな顔を選んでね</h3><p class="sub">複数OK。深く考えず、直感でどうぞ ♡</p>
+<div id="preGrid" class="grid"></div>
+<div class="bottom"><span id="preCount">選択中 0 / 3</span><button id="preNext" class="primary small">次へ →</button></div>
+</section>
+
+<section id="preDone" class="screen hidden center"><div class="big">🎉</div><p class="eyebrow">PRELIMINARY CLEAR</p><h2>予選終了！</h2>
+<p>好き顔候補は <b id="preN">0</b> 人でした。</p><p>ここから候補同士を直接比べる「本選」へ進みます。</p>
+<button class="primary" onclick="show('mainIntro')">🔥 本選へ</button><button class="secondary" onclick="resetAll()">予選をもう一度やる</button></section>
+
+<section id="mainIntro" class="screen hidden center"><p class="eyebrow">🔥 MAIN ROUND</p><h2>本選</h2>
+<p>この中で好きな顔を<br><b>1位 → 2位</b> の順に選んでね！</p>
+<div class="rules">① 一番好きな顔をタップ<br>② 次に好きな顔をタップ<br><br><b>本選は3ROUND。</b><br>後半ほど近い候補同士を比べます。</div>
+<button class="primary" onclick="startMain()">本選スタート</button></section>
+
+<section id="main" class="screen hidden"><div class="head"><div><p class="eyebrow">🔥 MAIN ROUND</p><h2 id="mainTitle"></h2></div><button class="link" onclick="show('home')">トップへ</button></div>
+<p id="mainProgress" class="meta"></p><h3 id="mainPrompt">① 一番好きな顔は？</h3><p class="sub">まず1位 → 次に2位</p>
+<div id="mainPair" class="duel"></div><button class="undo" onclick="toast('1試合ずつ直感で進める仕様です')">↶ ひとつ前</button></section>
+
+<section id="mainDone" class="screen hidden center"><div class="big">🔥</div><p class="eyebrow">MAIN ROUND CLEAR</p><h2>本選3ROUND終了！</h2>
+<p>候補同士の比較が終わりました。</p><p>ここから決勝進出18人を決める「本選 最終戦」へ進みます。</p>
+<button class="primary" onclick="show('lastIntro')">⚔️ 本選 最終戦へ</button><button class="secondary" onclick="resetAll()">最初からやり直す</button></section>
+
+<section id="lastIntro" class="screen hidden center"><p class="eyebrow">⚔️ LAST BATTLE</p><h2>本選 最終戦</h2>
+<p>決勝進出をかけた<br>ラストバトル！</p>
+<div class="rules">ボーダー付近の候補をもう一度比べます。<br><br><b>本選上位は決勝進出をキープ。</b><br>ボーダーだけを再比較します。</div>
+<button class="primary" onclick="startLast()">最終戦スタート</button></section>
+
+<section id="last" class="screen hidden"><div class="head"><div><p class="eyebrow">⚔️ LAST BATTLE</p><h2>最終戦 1 / 1</h2></div><button class="link" onclick="show('home')">トップへ</button></div>
+<h3>① 一番好きな顔は？</h3><p class="sub">決勝進出をかけて選んでね</p><div id="lastPair" class="duel"></div></section>
+
+<section id="finalists" class="screen hidden center"><div class="big">👑</div><p class="eyebrow">FINALISTS</p><h2>決勝進出18人決定！</h2>
+<p>ここからは完全二択。<br>あなたの好き顔TOP9を、1位から9位まで決めます。</p>
+<button class="primary" onclick="startFinal()">👑 決勝へ</button><button class="secondary" onclick="resetAll()">最初からやり直す</button></section>
+
+<section id="final" class="screen hidden"><div class="head"><div><p class="eyebrow">👑 FINAL ROUND</p><h2>決勝 TOP9選考中</h2></div><button class="link" onclick="show('home')">トップへ</button></div>
+<h3>どっちの顔が好き？</h3><p class="sub">直感で1人をタップ。TOP9が確定したら終了。</p>
+<div class="status"><b id="finalProgress">最終戦比較</b></div><div id="finalPrompt" class="prompt">どちらの顔が好き？</div><div id="finalPair" class="duel"></div></section>
+
+<section id="result" class="screen hidden"><div class="resultHead"><p class="eyebrow">YOUR SUKIGAO 9</p>
+<h2>あなたの<br><strong>タイ女性芸能人<br>好き顔9選</strong> 👑</h2><p>あなたの「顔が好き」TOP9</p></div>
+<div id="resultGrid" class="resultGrid"></div><div class="table"><h3>TOP9</h3><ol id="resultList"></ol></div>
+<button class="primary" onclick="copyResult()">結果テキストをコピー</button><button class="secondary" onclick="resetAll()">もう一度やる</button>
+<p class="note">非公式のファン制作サイトです。画像・氏名等の権利はそれぞれの権利者に帰属します。</p></section>
+
+<div id="toast" class="toast"></div></div><script src="script.js"></script></body></html>
